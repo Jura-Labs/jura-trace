@@ -8,11 +8,9 @@ We take the security of Jura Trace seriously. If you believe you have found a se
 
 Instead, report them by email to:
 
-**security@juralabs.org**
+**hello@juralabs.org** with `[SECURITY]` in the subject line)
 
-(or, if that is not yet provisioned, **hello@juralabs.org** with `[SECURITY]` in the subject line)
-
-You should receive an acknowledgement within **3 working days**. If, for any reason, you do not, please follow up to ensure we received your original message.
+You should receive an acknowledgement within **5 working days**. If, for any reason, you do not, please follow up to ensure we received your original message.
 
 Please include the following in your report:
 
