@@ -1,0 +1,88 @@
+name: Bug report
+description: Report a problem with a Jura Trace installer or the desktop app
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. The more detail you give us, the faster we can fix it.
+
+        **Security issue?** Please do **not** file it here. See [SECURITY.md](https://github.com/Jura-Labs/jura-trace/blob/main/SECURITY.md) for the disclosure process.
+
+  - type: input
+    id: version
+    attributes:
+      label: Jura Trace version
+      description: Found under Help → About, or visible on the release you downloaded (e.g. v0.9.0-rc.22)
+      placeholder: v0.9.0-rc.22
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - macOS (Apple Silicon)
+        - macOS (Intel)
+        - Windows 11 (x64)
+        - Windows 11 (ARM64)
+        - Windows 10
+        - Linux (AppImage)
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: os-version
+    attributes:
+      label: OS version
+      placeholder: macOS 15.3, Windows 11 23H2
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the bug.
+      placeholder: When I drag a JPEG into Verify, the trust score never appears.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open Jura Trace
+        2. Go to Verify
+        3. Drag in `IMG_1234.jpg`
+        4. Wait …
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Drag-drop screenshots into this box. If the sidecar is involved, the log lives at `~/Library/Logs/jura-trace/sidecar.log` (macOS) or `%APPDATA%\jura-trace\logs\sidecar.log` (Windows).
+      render: shell
+
+  - type: checkboxes
+    id: confirms
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have searched existing issues and this is not a duplicate.
+          required: true
+        - label: I am running a release downloaded from this repository (not a self-built copy).
+          required: true
