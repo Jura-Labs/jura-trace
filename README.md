@@ -27,7 +27,6 @@ Jura Trace examines images, videos and documents and tells you what it finds —
 | Windows | `.msi` and `.exe` (NSIS) | Azure Trusted Signing |
 | Linux | `.AppImage` | (paused — see roadmap) |
 
-Detailed installation guides: <https://juralabs.org/install>
 
 ## About
 
