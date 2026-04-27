@@ -126,18 +126,11 @@ You don't need to log in or create an account. There isn't one.
 
 ## 5. Try Content Credentials verification
 
-This is the most exciting workflow to try first. **Content Credentials** are a cryptographic provenance standard ([C2PA](https://c2pa.org)) that lets cameras and editing tools embed a tamper-evident record of how an image was created. Jura Trace verifies these credentials and shows you the full chain in plain English.
+ **Content Credentials** are a cryptographic provenance standard ([C2PA](https://c2pa.org)) that lets cameras and editing tools embed a tamper-evident record of how an image was created. Jura Trace verifies these credentials and shows you the full chain in plain English.
 
 ### Step A — Get a test image with valid Content Credentials
 
 Pick **any** of these sources:
-
-#### Easiest — Adobe's gallery
-
-1. Open <https://contentcredentials.org/verify> in your browser
-2. The page has a **gallery** of example images — Adobe Firefly creations, Pixel camera captures, Truepic-signed news photos
-3. Right-click any thumbnail → **Save image as…** to download it
-4. (Optional) Notice the same page shows the credentials inline — you can compare what Jura Trace finds against the official Content Credentials viewer
 
 #### If you have a Pixel phone (8, 8a, 9, 9a, 9 Pro)
 
@@ -170,7 +163,7 @@ You'll see a layered, progressive disclosure of what was found:
 
 #### **L1 — The seal (top of the page)**
 
-A small badge with the Content Credentials `cr` icon if credentials are present. Colour indicates trust level: green (verified), amber (mixed), red (failed/missing).
+A small badge with the Content Credentials `cr` icon if credentials are present. Colour indicates trust level: green (verified).
 
 #### **L2 — Provenance summary**
 
@@ -198,13 +191,6 @@ A "Show raw validation codes" toggle reveals the exact c2pa-rs validation outcom
 - The **Active manifest** is the most recent edit; the **Origin manifest** is the original capture
 - **AI-generated** content (e.g. Firefly exports) caps the trust score at 25% — by design, because the producer self-declared AI generation
 - **Composite-AI** content (e.g. Pixel Zoom Enhance — real photos with AI-edited regions) caps trust at 55% — a real photograph with declared AI components
-
-### Things you should try
-
-- Verify a Pixel photo (or one from the contentcredentials.org gallery) — should show the full chain with green ticks
-- Verify a Firefly export — should show "AI-generated" prominently and cap trust at 25%
-- Verify a Pixel Zoom Enhance image — should show two manifests in the chain (Capture → Zoom Enhance edit) with both validated
-- Edit one of those images in Photoshop without Content Credentials enabled, save, and verify the result — Jura Trace should report the credentials as broken or missing
 
 ---
 
@@ -322,12 +308,11 @@ Please include:
 
 ### Pilot programme questions
 
-Email **pilots@juralabs.org** (or **hello@juralabs.org** if pilots@ isn't yet provisioned).
+Email **hello@juralabs.org** 
 
 ### General
 
 - Website: <https://juralabs.org>
-- Brand: <https://github.com/Jura-Labs/jura-trace/blob/main/README.md>
 
 ---
 
