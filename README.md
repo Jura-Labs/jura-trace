@@ -1,43 +1,62 @@
 # Jura Trace — Downloads
 
-Official installer downloads for **Jura Trace**, a forensic media verification tool.
+Official downloads for **Jura Trace**, a local-first forensic media verification tool published by Jura Labs Community Interest Company (UK, Companies House 17117467).
 
 [![Latest release](https://img.shields.io/github/v/release/Jura-Labs/jura-trace?include_prereleases&label=latest)](https://github.com/Jura-Labs/jura-trace/releases/latest)
-[![Licence: PolyForm NC 1.0.0](https://img.shields.io/badge/licence-PolyForm--NC--1.0.0-informational)](LICENSE)
+[![Licence: AGPL-3.0-or-later](https://img.shields.io/badge/licence-AGPL--3.0--or--later-5A85B5)](LICENSE)
 [![Website](https://img.shields.io/badge/website-juralabs.org-5A85B5)](https://juralabs.org)
 
-> 🚀 **First-time pilot tester?** Read the **[Getting Started guide](GETTING_STARTED.md)** — install + your first Content Credentials verification in 10 minutes.
-
-**Download the latest version from the [Releases](https://github.com/Jura-Labs/jura-trace/releases) page.**
+> 📥 **The canonical download surface for current installers is [juralabs.org](https://juralabs.org).** The Releases page on this repository remains available as a stable mirror.
 
 ---
 
 ## What is Jura Trace?
 
-Jura Trace examines images, videos and documents and tells you what it finds — honestly, and without certainty where none exists. It runs entirely on your device.
+Jura Trace examines images and documents and reports what it finds. Honestly, and without certainty where none exists. Everything runs on your device.
 
-- **12 forensic detectors** — including ELA, noise, copy-move, deepfake (GBM + UnivFD ensemble), JPEG ghost, segmented ELA, colour temperature, CLIP, watermark, video deepfake, and EXIF anomaly with XMP AI-provenance.
-- **C2PA Content Credentials** — full L1–L4 progressive disclosure aligned with the C2PA UX Recommendations v1.4. Trust-list-aware (Adobe, Microsoft, Google, Truepic, etc.).
-- **Local-first** — no cloud, no accounts, no telemetry. Optional Enhanced mode allows OCSP/CRL revocation checks and remote manifest fetching for full C2PA conformance.
-- **Cross-platform** — macOS (Apple Silicon), Windows (x64). Linux AppImage paused for v1.0.
+- **13 forensic detectors** in v1.0, covering Error Level Analysis, noise, copy-move, deepfake (GBM v4 plus UnivFD v10onnx ensemble), JPEG ghost, segmented ELA, colour temperature, CLIP zero-shot AI detection, perceptual fingerprinting, and EXIF anomaly with XMP AI-provenance detection. Three detectors (NPR, shadow consistency, splice boundary) are available on demand as investigation tools.
+- **C2PA Validator-Conformant** (publicly listed on the [C2PA Conforming Products List](https://c2pa.org/conformance/) from 2026-05-31). First copyleft validator, first UK validator. Full L1 to L4 progressive disclosure aligned with the C2PA UX Recommendations v1.4. Trust-list aware (Adobe, Microsoft, Google, Truepic and others).
+- **Local-first.** No cloud, no accounts, no telemetry. An optional Enhanced mode permits OCSP/CRL revocation checks and remote manifest fetching for full C2PA conformance.
+- **Cross-platform.** macOS (Apple Silicon) and Windows (x64) are shipping. Linux is paused for v1.0.
 
-## Install
+## Download
 
-| Platform | Installer | Signed |
+The canonical download surface is **[juralabs.org](https://juralabs.org)**. For specific historical builds you can also browse the [Releases](https://github.com/Jura-Labs/jura-trace/releases) page on this repository.
+
+| Platform | Installer | Signing |
 |---|---|---|
-| **macOS** (Apple Silicon) | `Jura.Trace_0.9.0_aarch64.dmg` | Apple Developer ID — Jura Labs CIC (notarised) |
+| **macOS** (Apple Silicon) | `Jura.Trace_0.9.0_aarch64.dmg` | Apple Developer ID, Jura Labs CIC (notarised) |
 | **Windows** (x64) | `Jura.Trace_0.9.0_x64_en-US.msi` (recommended) <br> `Jura.Trace_0.9.0_x64-setup.exe` (NSIS) | Azure Trusted Signing |
-| Linux | (paused — re-enabling for v1.0) | — |
+| Linux | paused for v1.0 | — |
 
-Step-by-step install + first-test walkthrough: **[GETTING_STARTED.md](GETTING_STARTED.md)**.
+Step-by-step install and first-verification walkthrough: **[GETTING_STARTED.md](GETTING_STARTED.md)**.
+
+## v1.0 public release: Monday 22 June 2026
+
+Jura Trace v1.0 is in launch preparation. The public release lands on **Monday 22 June 2026**, with v0.9.0-rc builds available now for testing.
+
+## Licence
+
+**AGPL-3.0-or-later.** Free and open-source for anyone, including commercial use that complies with the AGPL's network-use clause and copyleft terms. See [`LICENSE`](LICENSE) for the full text.
+
+The project switched to AGPL-3.0-or-later on 2026-05-06. Earlier releases were published under PolyForm Noncommercial 1.0.0; rc.21 onwards are AGPL-3.0-or-later.
+
+A commercial licence is available for use cases that cannot operate under the AGPL (for example, integration into closed-source products, internal modified deployments, or cases requiring contractual indemnification). Contact `licensing@juralabs.org`.
+
+## Source code
+
+Source code for Jura Trace will be published on Codeberg at **[codeberg.org/jura-labs/jura-trace](https://codeberg.org/jura-labs/jura-trace)** from **Monday 22 June 2026**, coincident with the v1.0 public release.
+
+Before that date the source remains in a private development repository; the signed installers in this repository are the only public artefacts. After 22 June the public source mirror on Codeberg is the authoritative read-only home for the AGPL source tree. This GitHub repository is retained for installer distribution and the auto-updater endpoint.
+
+GitHub auto-generates `Source code (zip/tar.gz)` archives for every release. **Those archives are empty placeholders.** They do not contain the Jura Trace source. Use the platform installers for the application itself, and (from 22 June 2026) the Codeberg mirror for the source.
 
 ## About
 
-- **Developer:** [Jura Labs Community Interest Company](https://juralabs.org) (UK CIC, Companies House 17117467)
-- **Licence:** [PolyForm Noncommercial 1.0.0](LICENSE) — free for non-commercial, education, research, and cultural use
-- **Source code:** maintained in a separate private repository; this public repo distributes signed installers only
-- **Security:** see [SECURITY.md](SECURITY.md) for how to report vulnerabilities
+- **Developer:** [Jura Labs Community Interest Company](https://juralabs.org) (UK, Companies House 17117467).
+- **Licence:** [AGPL-3.0-or-later](LICENSE).
+- **Source code:** publishing 2026-06-22 on [Codeberg](https://codeberg.org/jura-labs/jura-trace).
+- **Security:** see [SECURITY.md](SECURITY.md) for vulnerability disclosure.
+- **Commercial licensing:** `licensing@juralabs.org`.
 
-## Note on the "Source code" archives
-
-GitHub auto-generates `Source code (zip/tar.gz)` archives for every release. **Those archives are empty placeholders** — they do not contain the Jura Trace source. Download the platform installers (`.dmg`, `.msi`, `.exe`) instead.
+Copyright © 2025-2026 Paul Griffiths, published by Jura Labs CIC under perpetual royalty-free licence.
