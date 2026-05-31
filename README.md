@@ -76,6 +76,6 @@ Jura Trace is developed by a sole maintainer (Paul Griffiths) using Anthropic Cl
 - **Licence:** [AGPL-3.0-or-later](LICENSE).
 - **Source code:** publishing 2026-06-22 on [Codeberg](https://codeberg.org/jura-labs/jura-trace).
 - **Security:** see [SECURITY.md](SECURITY.md) for vulnerability disclosure.
-- **Commercial licensing:** `licensing@juralabs.org`.
+- **Commercial licensing:** `hello@juralabs.org`.
 
 Copyright © 2025-2026 Paul Griffiths, published by Jura Labs CIC under perpetual royalty-free licence.
