@@ -69,7 +69,6 @@ Jura Trace is developed by a sole maintainer (Paul Griffiths) using Anthropic Cl
 
 **Forensic verdicts** (the runtime detection output users see) are produced by the deployed detectors and human-set thresholds. No large language model is in the verdict pipeline.
 
-This declaration follows the [NLnet Foundation's policy on the use of Generative AI for funded projects](https://nlnet.nl/genai/) (effective 8 December 2025). The contributor-facing version of this policy, including disclosure requirements for code generation, is in [`GENAI_USE_POLICY.md`](GENAI_USE_POLICY.md).
 
 ## About
 
