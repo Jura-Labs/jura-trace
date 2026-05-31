@@ -10,7 +10,6 @@ Official downloads for **Jura Trace**, a local-first forensic media verification
 
 ---
 
-<iframe src="https://player.vimeo.com/video/1196221101?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Jura Trace: Know what&#039;s real. Open-source content verification"></iframe>
 
 ## What is Jura Trace?
 
