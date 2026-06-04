@@ -36,6 +36,20 @@ Step-by-step install and first-verification walkthrough: **[GETTING_STARTED.md](
 
 Jura Trace v1.0 is in launch preparation. The public release lands on **Monday 22 June 2026**, with v0.9.0-rc builds available now for testing.
 
+## For journalists, funders, and partners
+
+If you are evaluating Jura Trace for editorial coverage, a funding decision, or a partnership conversation, the following resources are the right starting points.
+
+**Read the methodology before you write.** A two-page technical overview of the C2PA implementation (dual signing modes, trust-list awareness, manifest spec compliance) and the forensic methodology (thirteen detectors, trust-score algorithm, model performance, known limitations) is published at **[docs/methodology.md](docs/methodology.md)**. Every quantitative claim is anchored to a specific file in the source tree, reproducible under the AGPL.
+
+**Verifiable conformance status.** Validator-Conformant on the public [C2PA Conforming Products List](https://spec.c2pa.org/conformance-explorer/) since 2026-05-31. Record identifier `019d8d83-ed1c-787c-920c-8fad67b55cbe`, spec version 2.2, JPEG / PNG / TIFF / WebP. First AGPL-licensed Validator-Conformant desktop application, first UK validator, tenth globally. Content Authenticity Initiative member from 2026-05-28.
+
+**Press contact.** Email `hello@juralabs.org`. Direct contact with the founder Paul Griffiths is available for technical or editorial briefings on request. Press kit (logos, screenshots, founder headshot, embedded preview video) is published at juralabs.org/press from 15 June 2026.
+
+**Wider documentation.** A public wiki mirror of the in-app help is published at [codeberg.org/jura-labs/jura-trace/wiki](https://codeberg.org/jura-labs/jura-trace/wiki) from 2026-06-22 (coincident with the v1.0 public release). It includes the full Methodology page, Format Support matrix, and Glossary.
+
+**Try it.** Installers in the [Releases](https://github.com/Jura-Labs/jura-trace/releases) tab on this repository are signed (Apple Developer ID for macOS, Azure Trusted Signing for Windows) and run without further setup. Verification works fully offline.
+
 ## Licence
 
 **AGPL-3.0-or-later.** Free and open-source for anyone, including commercial use that complies with the AGPL's network-use clause and copyleft terms. See [`LICENSE`](LICENSE) for the full text.
