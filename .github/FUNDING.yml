@@ -1,0 +1,10 @@
+# Jura Trace donation surface.
+#
+# Jura Labs is a UK Community Interest Company (Companies House 17117467),
+# an asset-locked non-profit. Contributions support development of free
+# verification tools for journalists, fact-checkers, human-rights workers,
+# and cultural-heritage institutions.
+#
+# The Sponsor button on this repository links directly to a Stripe Payment
+# Link, the same surface used by the in-app donation prompt.
+custom: ["https://buy.stripe.com/cNibJ19g473m3v1cj88og00"]
