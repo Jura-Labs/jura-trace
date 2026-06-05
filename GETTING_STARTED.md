@@ -306,7 +306,7 @@ Please include:
 
 **Please don't file these as public issues.** See [SECURITY.md](https://github.com/Jura-Labs/jura-trace/blob/main/SECURITY.md) for the responsible disclosure process.
 
-### Pilot programme questions
+### programme questions
 
 Email **hello@juralabs.org** 
 
