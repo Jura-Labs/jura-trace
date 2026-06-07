@@ -68,9 +68,9 @@ The 20/80 split (reduced from 40/60 after a security audit) reflects the operati
 Two production models drive the deepfake verdict:
 
 - **GBM deepfake classifier v4**: 84-feature gradient-boosted-model trained on 10,709 images (5,724 authentic, 4,985 AI). AUC-ROC 0.9868, authentic false-positive rate 4.54%, AI recall 92.52%, decision threshold 0.49. SHA-256 `512def7ec62cbeb023c5343859a15606a02742d48b1fca31df11667c0b9ba14a`.
-- **UnivFD probe v9** (CLIP ViT-B/32 embeddings + logistic regression): 39,016 training samples (10,712 original + 32,142 platform-forwarded re-saves at Q=75/85/2× to defend against platform compression). AUC-ROC 0.9933, false-positive rate 4.12%, recall 95.70%. SHA-256 `ed691b45cbe2903a7e0530fd0ec78ab91eef9f15133af4c1a5c8cf172086dacd`.
+- **UnivFD probe v10onnx** (CLIP ViT-B/32 embeddings + logistic regression, ONNX-runtime-aligned training): 50,710 training samples spanning original JPEG + platform-forwarded re-saves (Q=75/85/2× to defend against platform compression) + multi-format augmentation (PNG, TIFF, WebP, HEIC). AUC-ROC 0.9929, false-positive rate 3.87%, recall 95.77%. Decision boundary: synthetic ≥ 0.60, authentic ≤ 0.35. SHA-256 `0534a9e80e352a5bd8af5fc447d03e37be2e1aa68a05d81f05736d6ef8956a86`. The "onnx" suffix denotes that the probe was retrained against the production sidecar's PIL + ONNX runtime feature path (rather than the open_clip + PyTorch path used during research) to eliminate a 0.996 mean-cosine-similarity divergence between training and deployment embeddings.
 
-Composite false-positive rate across the ensemble after MakerNote authenticity bonus and known-vendor recognition: 3.87% on the held-out validation set. Full per-generator recall and known-trade-off documentation lives at `docs/calibration/univfd-v9-platform-augmentation.md` in the source tree.
+Composite false-positive rate across the ensemble after MakerNote authenticity bonus and known-vendor recognition: 3.87% on the held-out validation set. Full per-generator recall, per-format AUC, and the v9 → v10onnx migration record lives at `docs/calibration/univfd-v10onnx-divergence-fix.md` in the source tree.
 
 ### 2.4 Composite signal amplification and known limitations
 
@@ -88,7 +88,7 @@ Specific anchors:
 |---|---|
 | Trust-score algorithm | `src-tauri/src/lib.rs::compute_trust` |
 | GBM classifier model card | `docs/calibration/gbm-classifier-v4-model-card.md` |
-| UnivFD probe model card | `docs/calibration/univfd-v9-platform-augmentation.md` |
+| UnivFD probe model card | `docs/calibration/univfd-v10onnx-divergence-fix.md` |
 | C2PA manifest schema | `src-tauri/src/c2pa.rs` |
 | Trust-list embedding | `src-tauri/src/c2pa.rs::TRUSTED_ISSUERS` |
 | Detector lineup persistence | `src-tauri/src/db.rs` schema v6 |
