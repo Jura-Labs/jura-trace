@@ -1,0 +1,87 @@
+name: Feature request
+description: Suggest a new feature or improvement for Jura Trace
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a feature. Please read [CONTRIBUTING.md](https://github.com/Jura-Labs/jura-trace/blob/main/CONTRIBUTING.md) before filing.
+
+        **Source code changes** belong on the canonical source repository at `codeberg.org/jura-labs/jura-trace` from 2026-06-22. This GitHub repository accepts installer-related feature requests, documentation improvements, and translation contributions.
+
+        **Security-related ideas** that involve disclosing a vulnerability should go to `security@juralabs.org` instead. See [SECURITY.md](https://github.com/Jura-Labs/jura-trace/blob/main/SECURITY.md).
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe the user problem, the workflow that's awkward, or the gap you've hit. Concrete examples are far more useful than abstract requests.
+      placeholder: |
+        I'm verifying images for a newsroom. When I find a suspicious image, I want to...
+        Currently I have to...
+        This is painful because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How would you like Jura Trace to behave? Be as specific as possible. UI sketches, sample output, or pseudo-code all help.
+      placeholder: |
+        A new option in Settings that...
+        Or a button on the Verify page that...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches you've thought about, even if you've ruled them out. Helps reviewers understand the design space.
+      placeholder: |
+        I considered using existing feature X, but it doesn't handle...
+        Another option would be a separate tool, but that loses...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Who else would benefit?
+      description: Helps us prioritise. Pick the closest match; "Other" is fine.
+      options:
+        - Journalists / fact-checkers
+        - Human-rights investigators
+        - Cultural-heritage / archive institutions
+        - Photographers / content creators
+        - Researchers
+        - Educators / training
+        - IT administrators
+        - Other (please describe in the problem statement)
+    validations:
+      required: false
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: How urgent is this for you?
+      description: Honest answer helps us schedule. There is no wrong answer; "nice to have someday" is a perfectly valid response.
+      options:
+        - Blocking my work today
+        - Important within the next 1-3 months
+        - Useful but not urgent
+        - Nice to have someday
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have searched existing issues and this has not already been requested
+          required: true
+        - label: I have read [CONTRIBUTING.md](https://github.com/Jura-Labs/jura-trace/blob/main/CONTRIBUTING.md)
+          required: true

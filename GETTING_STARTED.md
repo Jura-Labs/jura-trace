@@ -1,8 +1,8 @@
 # Getting Started with Jura Trace
 
-> *A 10-minute walkthrough for first-time pilot testers — install, run your first verification, and see Content Credentials in action.*
+> *A 10-minute walkthrough for new users — install, run your first verification, and see Content Credentials in action.*
 
-This guide is for **release candidate v0.9.0-rc.24**. Jura Trace is pre-1.0 software in active testing — your feedback shapes the v1.0 release.
+This guide tracks the latest release candidate on the [Releases page](https://github.com/Jura-Labs/jura-trace/releases). Jura Trace v1.0 launches on **Monday 22 June 2026**; release candidates published before that date are functionally complete and suitable for production evaluation.
 
 ---
 
@@ -258,7 +258,7 @@ In **Settings → Network Access** you'll see two options:
 - **Enhanced (default)** — allows outbound HTTPS to certificate-authority OCSP/CRL endpoints (for full Content Credentials trust validation), the open-meteo weather API (for verify-context), and any remote manifest URLs embedded in the credentials of files you choose to verify.
 - **Standard (offline)** — fully offline. Some Content Credentials checks become "informational" (we can't reach the CA to confirm a certificate hasn't been revoked).
 
-For pilot testing we recommend keeping **Enhanced** on. If you switch to Standard you'll see the difference clearly: many real-world Pixel and Adobe-signed images report "trust uncertain" because we can't reach Apple/Google/Adobe's CAs.
+We recommend keeping **Enhanced** on. If you switch to Standard you'll see the difference clearly: many real-world Pixel and Adobe-signed images report "trust uncertain" because we can't reach Apple/Google/Adobe's CAs.
 
 ### What about Ollama / LLaVA / Qwen?
 
@@ -267,10 +267,6 @@ Optional. Jura Trace works fully without them. They power two add-on features:
 - Qwen2.5 (text LLM) — powers the experimental claim verification feature
 
 If Ollama is installed and running on its default port (11434), Jura Trace detects it automatically. See **Help → Settings → Ollama AI Features** in-app.
-
-### Why are some pages missing from the nav?
-
-The **Monitor** tab is hidden in this build to keep pilot testing focused on Verify (the workflow under formal C2PA Validator review). The route still works if you visit `/monitor` directly. **Protect** (Content Credentials *signing*) is similarly hidden — it's a separate workstream not yet ready for pilot review.
 
 ### My Pixel image shows "Concern" even though it's a real photo!
 

@@ -4,9 +4,13 @@ Official downloads for **Jura Trace**, a local-first forensic media verification
 
 [![Latest release](https://img.shields.io/github/v/release/Jura-Labs/jura-trace?include_prereleases&label=latest)](https://github.com/Jura-Labs/jura-trace/releases/latest)
 [![Licence: AGPL-3.0-or-later](https://img.shields.io/badge/licence-AGPL--3.0--or--later-5A85B5)](LICENSE)
+[![C2PA Validator-Conformant](https://img.shields.io/badge/C2PA-Validator--Conformant-5A85B5)](https://spec.c2pa.org/conformance-explorer/)
+[![CAI Member](https://img.shields.io/badge/CAI-Member-5B8A5F)](https://contentauthenticity.org)
 [![Website](https://img.shields.io/badge/website-juralabs.org-5A85B5)](https://juralabs.org)
 
 > 📥 **The canonical download surface for current installers is [juralabs.org](https://juralabs.org).** The Releases page on this repository remains available as a stable mirror.
+
+**Documentation**: read the [Methodology overview](docs/methodology.md) (two-page C2PA + forensic algorithm) before evaluating, citing, or writing about Jura Trace. Public wiki: [github.com/Jura-Labs/jura-trace/wiki](https://github.com/Jura-Labs/jura-trace/wiki).
 
 ---
 
@@ -46,7 +50,7 @@ If you are evaluating Jura Trace for editorial coverage, a funding decision, or 
 
 **Press contact.** Email `hello@juralabs.org`. Direct contact with the founder Paul Griffiths is available for technical or editorial briefings on request. Press kit (logos, screenshots, founder headshot, embedded preview video) is published at juralabs.org/press from 15 June 2026.
 
-**Wider documentation.** A public wiki mirror of the in-app help is published at [codeberg.org/jura-labs/jura-trace/wiki](https://codeberg.org/jura-labs/jura-trace/wiki) from 2026-06-22 (coincident with the v1.0 public release). It includes the full Methodology page, Format Support matrix, and Glossary.
+**Wider documentation.** A public wiki mirror of the in-app help is live now at [github.com/Jura-Labs/jura-trace/wiki](https://github.com/Jura-Labs/jura-trace/wiki). From 2026-06-22 the same content is also published on Codeberg (`codeberg.org/jura-labs/jura-trace/wiki`, going live with the v1.0 public source release). Includes the full Methodology page, Format Support matrix, and Glossary.
 
 **Try it.** Installers in the [Releases](https://github.com/Jura-Labs/jura-trace/releases) tab on this repository are signed (Apple Developer ID for macOS, Azure Trusted Signing for Windows) and run without further setup. Verification works fully offline.
 
