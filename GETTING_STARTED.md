@@ -93,6 +93,8 @@ Jura.Trace_0.9.0_x64-setup.exe          (NSIS installer — better for re-instal
 
 ### Optional: install FFmpeg for video / audio analysis
 
+> **Note**: Video and audio analysis are planned for a future release. FFmpeg can be installed now; the features will activate automatically when they become available.
+
 Image verification works out of the box. Video and audio require FFmpeg:
 
 - **With winget** (Windows 10 1709+): open PowerShell and run:

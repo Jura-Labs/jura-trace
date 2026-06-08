@@ -18,7 +18,7 @@ Jura Trace signs content in two distinct, user-selectable modes that occupy diff
 
 **Sovereign mode** generates a per-installation local Certificate Authority on first launch. Every asset the user signs in Sovereign mode is signed by a certificate this CA issued. This certificate is not on any public trust list. Verifiers see a "self-signed" or "unknown issuer" disclosure but the cryptographic chain is intact. Sovereign mode is the offline-first default: it makes no network calls, depends on no external infrastructure, and works on an air-gapped machine. The journalistic and human-rights documentation use cases that drove this design need verifiable provenance even when the operator does not want, or cannot achieve, listing on an industry trust list.
 
-**Conformant mode** signs with a trust-listed certificate issued by a public CA. Verifiers on Adobe, Microsoft, Google, Truepic, and other trust-list participants will resolve the chain to a recognised issuer. Conformant mode is intended for organisations whose work is consumed by news desks, picture agencies, and content platforms that already participate in the C2PA ecosystem. It is feature-flagged off in v1.0.0 pending publisher onboarding and reactivated in v1.0.2 (October 2026).
+**Conformant mode** signs with a trust-listed certificate issued by a public CA. Verifiers on Adobe, Microsoft, Google, Truepic, and other trust-list participants will resolve the chain to a recognised issuer. Conformant mode is intended for organisations whose work is consumed by news desks, picture agencies, and content platforms that already participate in the C2PA ecosystem. It is feature-flagged off in v1.0 pending publisher onboarding, and planned for re-enablement in a later release.
 
 The mode choice is exposed through a clear pre-seal disclosure that lists what gets embedded in the manifest, the TSA URL, the certificate SHA-256 fingerprint, the claim-generator string, and the chosen action (created or published). This addresses the C2PA UX Recommendations v1.4 requirement that signers understand what they are attesting.
 
@@ -76,7 +76,7 @@ Composite false-positive rate across the ensemble after MakerNote authenticity b
 
 When multiple detectors flag the same asset, the composite score elevates nonlinearly (specified per the algorithm in `compute_trust`). This is intended to surface the case where individual detector signals are weak but coherent across modalities.
 
-Known limitations are documented openly: Jura Trace is not a deepfake-detector-of-record; the training corpus is JPEG-heavy and weaker on rare formats; flux_dev (88.9% recall) and sdxl_turbo (91.1% recall) are the weakest generator families; audio and video deepfake analysis are deferred to v1.0.1 (target Monday 4 August 2026, aligned with EU AI Act Article 50 binding).
+Known limitations are documented openly: Jura Trace is not a deepfake-detector-of-record; the training corpus is JPEG-heavy and weaker on rare formats; flux_dev (88.9% recall) and sdxl_turbo (91.1% recall) are the weakest generator families; audio and video deepfake analysis are planned for a subsequent release, timed to the EU AI Act Article 50 transparency obligations (binding 2 August 2026).
 
 ## 3. Reproducibility and transparency
 
