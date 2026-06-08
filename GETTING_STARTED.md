@@ -56,7 +56,7 @@ Open **[the latest release page](https://github.com/Jura-Labs/jura-trace/release
 Jura.Trace_0.9.0_aarch64.dmg     (Apple Silicon)
 ```
 
-> **Intel Mac?** Apple Silicon only in this build. Intel support returns at v1.0 via a universal binary.
+> **Intel Mac?** This build is Apple Silicon only. A universal binary is planned for a future release.
 
 ### Install
 
@@ -179,7 +179,7 @@ Click **"Show full details"** to open a panel showing:
 - For each step: who signed it, what action was performed, when it happened
 - Validation status of the cryptographic signatures
 - Any warnings (e.g. expired certificates, untrusted signers)
-- The 12 automatic forensic detectors' results, displayed alongside the C2PA chain
+- The ten automatic forensic detectors (thirteen in total; three available on demand)' results, displayed alongside the C2PA chain
 
 #### **L4 — Raw data (for the technically curious)**
 
@@ -196,7 +196,7 @@ A "Show raw validation codes" toggle reveals the exact c2pa-rs validation outcom
 
 ## 6. Try forensic analysis on an unsigned image
 
-Most images on the web don't have Content Credentials — they're just JPEGs. Jura Trace also runs **12 automatic forensic detectors** that look for signs of manipulation independently of any cryptographic provenance.
+Most images on the web don't have Content Credentials — they're just JPEGs. Jura Trace also runs **ten automatic forensic detectors (thirteen in total; three available on demand)** that look for signs of manipulation independently of any cryptographic provenance.
 
 ### Try this
 
@@ -231,7 +231,7 @@ This is the **honest output** Jura Trace's brand promise commits to: certainty w
 |---|---|
 | App | `/Applications/Jura Trace.app` |
 | User data | `~/Library/Application Support/org.juralabs.trace/` |
-| Verification database | `~/Library/Application Support/org.juralabs.trace/jura.db` |
+| Verification database | `~/Library/Application Support/org.juralabs.trace/jura_archive.db` |
 | Logs | `~/Library/Logs/jura-trace/` |
 | Sidecar service log | `~/Library/Logs/jura-trace/sidecar.log` |
 
@@ -241,7 +241,7 @@ This is the **honest output** Jura Trace's brand promise commits to: certainty w
 |---|---|
 | App | `C:\Program Files\Jura Trace\` |
 | User data | `%APPDATA%\org.juralabs.trace\` |
-| Verification database | `%APPDATA%\org.juralabs.trace\jura.db` |
+| Verification database | `%APPDATA%\org.juralabs.trace\jura_archive.db` |
 | Logs | `%APPDATA%\jura-trace\logs\` |
 
 ---
@@ -302,9 +302,9 @@ Please include:
 
 **Please don't file these as public issues.** See [SECURITY.md](https://github.com/Jura-Labs/jura-trace/blob/main/SECURITY.md) for the responsible disclosure process.
 
-### programme questions
+### General enquiries
 
-Email **hello@juralabs.org** 
+Email **hello@juralabs.org**
 
 ### General
 
@@ -312,6 +312,6 @@ Email **hello@juralabs.org**
 
 ---
 
-*Thank you for piloting Jura Trace. The honest output you'll see is the result of months of calibration work — every detector has a documented false-positive rate, every claim has evidence behind it, and the trust score formula is published in-app.*
+*Thank you for using Jura Trace. The honest output you'll see is the result of months of calibration work: every detector has a documented false-positive rate, every claim has evidence behind it, and the trust-score formula is published in-app.*
 
-*— Jura Labs CIC, 27 April 2026*
+*— Jura Labs CIC, June 2026*
