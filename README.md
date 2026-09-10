@@ -64,11 +64,11 @@ A commercial licence is available for use cases that cannot operate under the AG
 
 ## Source code
 
-Source code for Jura Trace will be published on Codeberg at **[codeberg.org/jura-labs/jura-trace](https://codeberg.org/jura-labs/jura-trace)** from **Monday 22 June 2026**, coincident with the v1.0 public release.
+The source is published at **[github.com/Jura-Labs/jura-trace-dev](https://github.com/Jura-Labs/jura-trace-dev)**, under AGPL-3.0-or-later, with development, issues and pull requests in the open there since 8 September 2026. That is the repository to read, build, cite or contribute to.
 
-Before that date the source remains in a private development repository; the signed installers in this repository are the only public artefacts. After 22 June the public source mirror on Codeberg is the authoritative read-only home for the AGPL source tree. This GitHub repository is retained for installer distribution and the auto-updater endpoint.
+This repository holds the signed installers and the auto-updater endpoint only. GitHub auto-generates `Source code (zip/tar.gz)` archives for every release here; **those archives are empty placeholders** and do not contain the Jura Trace source.
 
-GitHub auto-generates `Source code (zip/tar.gz)` archives for every release. **Those archives are empty placeholders.** They do not contain the Jura Trace source. Use the platform installers for the application itself, and (from 22 June 2026) the Codeberg mirror for the source.
+The earlier public snapshot at codeberg.org/jura-labs/jura-trace is frozen at v1.0.0 (21 June 2026) and now points here. Jura Trace was first published on Codeberg because we support what Codeberg stands for; in July 2026 its members voted to discourage single-maintainer, AI-assisted projects with heavy build needs, which describes this one honestly, and Codeberg offers no macOS or Windows build runners.
 
 ## On the use of Generative AI in this codebase
 
@@ -93,7 +93,7 @@ Jura Trace is developed by a sole maintainer (Paul Griffiths),  Anthropic Claude
 
 - **Developer:** [Jura Labs Community Interest Company](https://juralabs.org) (UK, Companies House 17117467).
 - **Licence:** [AGPL-3.0-or-later](LICENSE).
-- **Source code:** publishing 2026-06-22 on [Codeberg](https://codeberg.org/jura-labs/jura-trace).
+- **Source code:** [github.com/Jura-Labs/jura-trace-dev](https://github.com/Jura-Labs/jura-trace-dev).
 - **Security:** see [SECURITY.md](SECURITY.md) for vulnerability disclosure.
 - **Commercial licensing:** `hello@juralabs.org`.
 
