@@ -19,10 +19,10 @@ Official downloads for **Jura Trace**, a local-first forensic media verification
 
 Jura Trace examines images and documents and reports what it finds. Honestly, and without certainty where none exists. Everything runs on your device.
 
-- **13 forensic detectors** in v1.0, covering Error Level Analysis, noise, copy-move, deepfake (GBM v4 plus UnivFD v10onnx ensemble), JPEG ghost, segmented ELA, colour temperature, CLIP zero-shot AI detection, perceptual fingerprinting, and EXIF anomaly with XMP AI-provenance detection. Three detectors (NPR, shadow consistency, splice boundary) are available on demand as investigation tools.
+- **13 forensic detectors**, covering Error Level Analysis, noise, copy-move, deepfake (GBM v4 plus UnivFD v10onnx ensemble), JPEG ghost, segmented ELA, colour temperature, CLIP zero-shot AI detection, perceptual fingerprinting, and EXIF anomaly with XMP AI-provenance detection. Three detectors (NPR, shadow consistency, splice boundary) are available on demand as investigation tools.
 - **C2PA Validator-Conformant** since 6 May 2026, publicly listed on the [C2PA Conforming Products List](https://spec.c2pa.org/conformance-explorer/) from 31 May 2026. Record identifier `019d8d83-ed1c-787c-920c-8fad67b55cbe`, spec version 2.2, image formats JPEG / PNG / TIFF / WebP. First AGPL-licensed Validator-Conformant desktop application on the public CPL; first UK validator. Full L1 to L4 progressive disclosure aligned with the C2PA UX Recommendations v1.4. Trust-list aware (Adobe, Microsoft, Google, Truepic and others).
 - **Local-first.** No cloud, no accounts, no telemetry. An optional Enhanced mode permits OCSP/CRL revocation checks and remote manifest fetching for full C2PA conformance.
-- **Cross-platform.** macOS (Apple Silicon) and Windows (x64) are shipping. Linux is paused for v1.0.
+- **Cross-platform.** macOS (Apple Silicon), Windows (x64) and Linux (x86_64) are shipping.
 
 ## Download
 
@@ -30,15 +30,20 @@ The canonical download surface is **[juralabs.org](https://juralabs.org)**. For 
 
 | Platform | Installer | Signing |
 |---|---|---|
-| **macOS** (Apple Silicon) | `Jura.Trace_0.9.0_aarch64.dmg` | Apple Developer ID, Jura Labs CIC (notarised) |
-| **Windows** (x64) | `Jura.Trace_0.9.0_x64_en-US.msi` (recommended) <br> `Jura.Trace_0.9.0_x64-setup.exe` (NSIS) | Azure Trusted Signing |
-| Linux | paused for v1.0 | — |
+| **macOS** (Apple Silicon) | `JuraTrace-<version>-macOS-AppleSilicon.dmg` | Apple Developer ID, Jura Labs CIC (notarised) |
+| **Windows** (x64) | `JuraTrace-<version>-Windows-x64.msi` (recommended) <br> `JuraTrace-<version>-Windows-x64-setup.exe` (NSIS) | Azure Trusted Signing |
+| **Linux** (x86_64) | `JuraTrace-<version>-Linux-x86_64.AppImage` <br> `JuraTrace-<version>-Linux-x86_64.deb` | Self-signed, AGPL source build |
+
+Filenames carry the version of the release you are looking at, so take them
+from the release page rather than typing them.
 
 Step-by-step install and first-verification walkthrough: **[GETTING_STARTED.md](GETTING_STARTED.md)**.
 
-## v1.0 public release: Monday 22 June 2026
+## Releases
 
-Jura Trace v1.0 is in launch preparation. The public release lands on **Monday 22 June 2026**, with v0.9.0-rc builds available now for testing.
+v1.0.0 was published on 18 June 2026 and is the current public release. The
+[Releases](https://github.com/Jura-Labs/jura-trace/releases) page on this
+repository is the record of what has shipped.
 
 ## For journalists, funders, and partners
 
