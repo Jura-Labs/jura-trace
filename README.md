@@ -24,6 +24,19 @@ Jura Trace examines images and documents and reports what it finds. Honestly, an
 - **Local-first.** No cloud, no accounts, no telemetry. An optional Enhanced mode permits OCSP/CRL revocation checks and remote manifest fetching for full C2PA conformance.
 - **Cross-platform.** macOS (Apple Silicon) and Windows (x64) are shipping. Linux is paused for v1.0.
 
+## See it in action
+
+A full walkthrough of verifying an image and signing your own with Jura Trace.
+Six minutes eighteen seconds.
+
+<a href="https://vimeo.com/1204251650">
+  <img src="docs/media/walkthrough-poster.jpg" width="720"
+       alt="Watch the Jura Trace product walkthrough on Vimeo">
+</a>
+
+There is also a [52-second trailer](https://vimeo.com/1196221101). Both are
+embedded on [juralabs.org/jura-trace](https://juralabs.org/jura-trace).
+
 ## Download
 
 The canonical download surface is **[juralabs.org](https://juralabs.org)**. For specific historical builds you can also browse the [Releases](https://github.com/Jura-Labs/jura-trace/releases) page on this repository.
