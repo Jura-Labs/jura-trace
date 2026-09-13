@@ -1,0 +1,116 @@
+name: Dispatch installer test
+
+# A1c. `installer-test.yml` lives in Jura-Labs/jura-trace-dev and triggers on
+# `release: types: [published]`. Releases are published *here*, on
+# Jura-Labs/jura-trace. The event has therefore never reached it: workflow id
+# 353192491 has a total_count of 0 runs since it was written.
+#
+# The event only exists in this repository, so the listener has to be here.
+# This is that listener, and it does exactly one thing: ask the source
+# repository to run the installer test against the tag that was just
+# published.
+#
+# ── Why workflow_dispatch and not repository_dispatch ──────────────────────
+# `POST /repos/{owner}/{repo}/dispatches` needs **contents: write** on the
+# target. `POST .../actions/workflows/{id}/dispatches` needs **actions:
+# write**. This repository is public, so its Actions secrets are the wrong
+# place for a token that could push code. actions:write is the narrower of
+# the two and it is all this needs. `installer-test.yml` already declares a
+# `workflow_dispatch` trigger with a `tag` input, so nothing changes there.
+#
+# ── The token ──────────────────────────────────────────────────────────────
+# INSTALLER_TEST_DISPATCH_TOKEN is a fine-grained PAT, resource owner
+# Jura-Labs, repository access limited to Jura-Labs/jura-trace-dev alone, and
+# a single permission: Actions → Read and write. It grants nothing in this
+# repository and cannot read code, secrets or releases in the other one.
+# Set an expiry and diarise the renewal: this workflow fails loudly when the
+# token dies, which is the intended behaviour and not a reason to widen it.
+#
+# ── No third-party actions ─────────────────────────────────────────────────
+# Deliberately plain curl. Nothing is checked out, no marketplace action runs,
+# so there is no third-party code in the job that holds the token.
+
+on:
+  release:
+    types: [published]
+
+# Nothing is needed in this repository. The token carries the only permission
+# this job uses, and it is scoped to the other repository.
+permissions: {}
+
+concurrency:
+  group: dispatch-installer-test-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+
+jobs:
+  dispatch:
+    name: Ask jura-trace-dev to test ${{ github.event.release.tag_name }}
+    runs-on: ubuntu-latest
+
+    # Pre-releases are skipped on cost. The installer test runs a Windows
+    # runner, which bills at 2x, and the rc smoke tags are published several
+    # times per release. A real release is the thing worth testing.
+    if: ${{ !github.event.release.prerelease }}
+
+    steps:
+      - name: Dispatch
+        env:
+          TOKEN: ${{ secrets.INSTALLER_TEST_DISPATCH_TOKEN }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${TOKEN}" ]; then
+            echo "::error::INSTALLER_TEST_DISPATCH_TOKEN is not set on this repository."
+            echo "Without it the installer test does not run for ${TAG}, and the"
+            echo "release goes out untested against a real installation."
+            echo ""
+            echo "Create a fine-grained PAT: resource owner Jura-Labs, repository"
+            echo "access Jura-Labs/jura-trace-dev only, permission Actions:"
+            echo "Read and write. Then add it here as a repository secret."
+            exit 1
+          fi
+
+          echo "Asking Jura-Labs/jura-trace-dev to run installer-test.yml for ${TAG}"
+
+          # 204 No Content is success. Anything else is reported in full,
+          # because a dispatch that fails quietly is the same class of defect
+          # this whole workflow exists to close.
+          code=$(curl --silent --show-error \
+            --output /tmp/dispatch-body.txt \
+            --write-out '%{http_code}' \
+            --request POST \
+            --url "https://api.github.com/repos/Jura-Labs/jura-trace-dev/actions/workflows/installer-test.yml/dispatches" \
+            --header "Authorization: Bearer ${TOKEN}" \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            --data "$(printf '{"ref":"main","inputs":{"tag":"%s"}}' "${TAG}")")
+
+          if [ "${code}" != "204" ]; then
+            echo "::error::Dispatch failed with HTTP ${code}."
+            echo "Response body:"
+            cat /tmp/dispatch-body.txt || true
+            echo ""
+            echo "403 usually means the token lacks Actions: Read and write on"
+            echo "jura-trace-dev, or it has expired."
+            echo "404 usually means the token cannot see jura-trace-dev at all,"
+            echo "or installer-test.yml is not on the default branch there."
+            exit 1
+          fi
+
+          echo "Dispatched. Runs appear at:"
+          echo "  https://github.com/Jura-Labs/jura-trace-dev/actions/workflows/installer-test.yml"
+
+      - name: Say what this did and did not prove
+        run: |
+          {
+            echo "### Installer test dispatched"
+            echo ""
+            echo "Tag: \`${{ github.event.release.tag_name }}\`"
+            echo ""
+            echo "This job asked the source repository to start the installer test."
+            echo "It does **not** report whether that test passed. A green tick here"
+            echo "means the request was accepted, nothing more."
+            echo ""
+            echo "Result: <https://github.com/Jura-Labs/jura-trace-dev/actions/workflows/installer-test.yml>"
+          } >> "$GITHUB_STEP_SUMMARY"
