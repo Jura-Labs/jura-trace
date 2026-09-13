@@ -17,11 +17,11 @@ Official downloads for **Jura Trace**, a local-first forensic media verification
 
 ## What is Jura Trace?
 
-Jura Trace examines images and documents and reports what it finds. Honestly, and without certainty where none exists. Everything runs on your device.
+Jura Trace examines images and reports what it finds. Honestly, and without certainty where none exists. Everything runs on your device.
 
-- **13 forensic detectors**, covering Error Level Analysis, noise, copy-move, deepfake (GBM v4 plus UnivFD v10onnx ensemble), JPEG ghost, segmented ELA, colour temperature, CLIP zero-shot AI detection, perceptual fingerprinting, and EXIF anomaly with XMP AI-provenance detection. Three detectors (NPR, shadow consistency, splice boundary) are available on demand as investigation tools.
-- **C2PA Validator-Conformant** since 6 May 2026, publicly listed on the [C2PA Conforming Products List](https://spec.c2pa.org/conformance-explorer/) from 31 May 2026. Record identifier `019d8d83-ed1c-787c-920c-8fad67b55cbe`, spec version 2.2, image formats JPEG / PNG / TIFF / WebP. First AGPL-licensed Validator-Conformant desktop application on the public CPL; first UK validator. Full L1 to L4 progressive disclosure aligned with the C2PA UX Recommendations v1.4. Trust-list aware (Adobe, Microsoft, Google, Truepic and others).
-- **Local-first.** No cloud, no accounts, no telemetry. An optional Enhanced mode permits OCSP/CRL revocation checks and remote manifest fetching for full C2PA conformance.
+- **12 forensic detectors**, covering Error Level Analysis, noise, copy-move, deepfake (GBM v4 plus UnivFD v10onnx ensemble), JPEG ghost, segmented ELA, colour temperature, CLIP zero-shot AI detection, and EXIF anomaly with XMP AI-provenance detection. Nine run automatically; three (NPR, shadow consistency, splice boundary) are on-demand investigation tools. C2PA provenance reading is counted separately, as reading a manifest is not forensics.
+- **C2PA Validator-Conformant** since 6 May 2026, publicly listed on the [C2PA Conforming Products List](https://spec.c2pa.org/conformance-explorer/) from 31 May 2026. Record identifier `019d8d83-ed1c-787c-920c-8fad67b55cbe`, spec version 2.2, image formats JPEG / PNG / TIFF / WebP. The first UK validator on that list, and the only Community Interest Company on it. Full L1 to L4 progressive disclosure aligned with the C2PA UX Recommendations v1.4. Trust-list aware (Adobe, Microsoft, Google, Truepic and others).
+- **Local-first.** No cloud, no accounts, no telemetry. An optional Enhanced mode fetches remote manifests. Revocation checking is not implemented: the mode is a hook for it, and c2pa-rs 0.90 does not yet expose OCSP or CRL at the API level.
 - **Cross-platform.** macOS (Apple Silicon), Windows (x64) and Linux (x86_64) are shipping.
 
 ## Download
@@ -41,7 +41,8 @@ Step-by-step install and first-verification walkthrough: **[GETTING_STARTED.md](
 
 ## Releases
 
-v1.0.0 was published on 18 June 2026 and is the current public release. The
+v1.1.0 was published on 10 September 2026 and is the current public release.
+It repairs the automatic update path, which had never worked in v1.0.0. The
 [Releases](https://github.com/Jura-Labs/jura-trace/releases) page on this
 repository is the record of what has shipped.
 
@@ -49,9 +50,9 @@ repository is the record of what has shipped.
 
 If you are evaluating Jura Trace for editorial coverage, a funding decision, or a partnership conversation, the following resources are the right starting points.
 
-**Read the methodology before you write.** A two-page technical overview of the C2PA implementation (dual signing modes, trust-list awareness, manifest spec compliance) and the forensic methodology (thirteen detectors, trust-score algorithm, model performance, known limitations) is published at **[docs/methodology.md](docs/methodology.md)**. Every quantitative claim is anchored to a specific file in the source tree, reproducible under the AGPL.
+**Read the methodology before you write.** A two-page technical overview of the C2PA implementation (dual signing modes, trust-list awareness, manifest spec compliance) and the forensic methodology (twelve detectors, trust-score algorithm, model performance, known limitations) is published at **[docs/methodology.md](docs/methodology.md)**. Every quantitative claim is anchored to a specific file in the source tree, reproducible under the AGPL.
 
-**Verifiable conformance status.** Validator-Conformant on the public [C2PA Conforming Products List](https://spec.c2pa.org/conformance-explorer/) since 2026-05-31. Record identifier `019d8d83-ed1c-787c-920c-8fad67b55cbe`, spec version 2.2, JPEG / PNG / TIFF / WebP. First AGPL-licensed Validator-Conformant desktop application, first UK validator, tenth globally. Content Authenticity Initiative member from 2026-05-28.
+**Verifiable conformance status.** Validator-Conformant on the public [C2PA Conforming Products List](https://spec.c2pa.org/conformance-explorer/) since 2026-05-31. Record identifier `019d8d83-ed1c-787c-920c-8fad67b55cbe`, spec version 2.2, JPEG / PNG / TIFF / WebP. The first UK validator on that list, the only Community Interest Company on it, and the tenth validator worldwide by conformance date. Content Authenticity Initiative member from 2026-05-28.
 
 **Press contact.** Email `hello@juralabs.org`. Direct contact with the founder Paul Griffiths is available for technical or editorial briefings on request. Press kit (logos, screenshots, founder headshot, embedded preview video) is published at juralabs.org/press from 15 June 2026.
 

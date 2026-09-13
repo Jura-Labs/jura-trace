@@ -2,13 +2,13 @@
 
 *A two-page technical overview for journalists, funders, partners, and conformance assessors evaluating Jura Trace v1.0.*
 
-*Last updated 2026-06-04 for v1.0 (target Monday 22 June 2026).*
+*Last updated 2026-09-13, current as of v1.1.0 (published 10 September 2026).*
 
 ## Summary
 
-Jura Trace verifies and signs digital images using a local-first architecture that combines two layers: a C2PA Content Credentials implementation and a thirteen-detector forensic pipeline. Everything runs on the user's device. Source code is published under AGPL-3.0-or-later, which means every figure cited here is reproducible by reading the code at the references given.
+Jura Trace examines and signs digital images using a local-first architecture that combines two layers: a C2PA Content Credentials implementation and a twelve-detector forensic pipeline. Everything runs on the user's device. Source code is published under AGPL-3.0-or-later, which means every figure cited here is reproducible by reading the code at the references given.
 
-Jura Trace is a Validator-Conformant C2PA application (recordId `019d8d83-ed1c-787c-920c-8fad67b55cbe`, spec version 2.2, conformant from 2026-05-06, publicly listed on the [C2PA Conforming Products List](https://spec.c2pa.org/conformance-explorer/) from 2026-05-31). It is the first AGPL-licensed Validator-Conformant desktop application on the CPL, the first UK validator, and the tenth globally.
+Jura Trace is a Validator-Conformant C2PA application (recordId `019d8d83-ed1c-787c-920c-8fad67b55cbe`, spec version 2.2, conformant from 2026-05-06, publicly listed on the [C2PA Conforming Products List](https://spec.c2pa.org/conformance-explorer/) from 2026-05-31). It is the first UK validator on the CPL, the only Community Interest Company on it, and the tenth validator worldwide by conformance date. The CPL records no licence field, so no claim is made here about being the first under any particular licence.
 
 ## 1. C2PA implementation
 
@@ -33,7 +33,7 @@ Jura Trace produces C2PA manifests that pass the c2patool selfqa test for JPEG, 
 
 ### 1.3 Trust-list awareness and revocation
 
-Verification consults the bundled Adobe / Microsoft / Google / Truepic trust list and reports the trust state honestly: trusted, untrusted, or self-signed, with the certificate's claimed identity rendered for the user. By default Jura Trace is fully offline; an optional **Enhanced mode** enables OCSP/CRL revocation checks and remote manifest fetching, which closes the §15.9 audit gap for organisations that need full conformance over correctness-only operation.
+Verification consults the bundled Adobe / Microsoft / Google / Truepic trust list and reports the trust state honestly: trusted, untrusted, or self-signed, with the certificate's claimed identity rendered for the user. By default Jura Trace is fully offline; an optional **Enhanced mode** fetches remote manifests. Revocation checking is not implemented. The mode is the hook for it and c2pa-rs 0.90 does not yet expose OCSP or CRL at the API level (`src-tauri/src/c2pa.rs:1554`), so the §15.9 audit gap is not yet closed.
 
 ### 1.4 Progressive disclosure (L1 to L4)
 
@@ -41,11 +41,11 @@ The verify panel implements the four-level progressive disclosure model from the
 
 ## 2. Forensic methodology
 
-### 2.1 The thirteen-detector pipeline
+### 2.1 The twelve-detector pipeline
 
-When trust is not provable by C2PA alone (no manifest, broken chain, or external user demand), Jura Trace falls back to a forensic pipeline of thirteen detectors. Ten run automatically; three are on-demand investigation tools that inform investigator judgement but do not contribute to the numeric trust score.
+When trust is not provable by C2PA alone (no manifest, broken chain, or external user demand), Jura Trace falls back to a forensic pipeline of twelve detectors. Nine run automatically; three are on-demand investigation tools that inform investigator judgement but do not contribute to the numeric trust score. C2PA provenance reading runs alongside them and is counted separately, because reading a manifest is not forensics.
 
-**Automatic (ten):** EXIF anomaly (including XMP AI-provenance detection and injection-detection sub-checks), C2PA, Error Level Analysis, noise analysis, copy-move detection, GBM deepfake classifier, UnivFD deepfake classifier (CLIP ViT-B/32-based), JPEG Ghost at 0.5× weight, segmented ELA, colour temperature, CLIP zero-shot AI detection.
+**Automatic (nine):** EXIF anomaly (including XMP AI-provenance detection and injection-detection sub-checks), Error Level Analysis, noise analysis, copy-move detection, deepfake (the GBM v4 and UnivFD v10onnx ensemble, one detector), JPEG Ghost at 0.5× weight, segmented ELA, colour temperature, CLIP zero-shot AI detection. The lineup is generated from `MODE_MATRIX` in `src-tauri/src/bin/gen_detectors.rs` into `ui/src/lib/generated/expectedDetectors.ts`, which is the source of truth for this count.
 
 **On-demand (three):** no-reference perceptual quality, shadow consistency, splice boundary.
 
@@ -55,7 +55,7 @@ Chromatic aberration was removed entirely (forensic audit graded it 1/5). The ea
 
 The trust score is a five-component composite, anchored in code at `src-tauri/src/lib.rs::compute_trust`:
 
-1. **Forensic primary**: 80% weight from the ten automatic detectors, calibrated against the training corpus.
+1. **Forensic primary**: 80% weight from the nine automatic detectors, calibrated against the training corpus.
 2. **EXIF corroborating**: 20% weight, capped, drawn from EXIF anomaly + MakerNote authenticity + injection-detection sub-checks.
 3. **C2PA adjustment**: positive contribution for trusted manifests, negative for broken chains, neutral for absent.
 4. **Composite cap**: 0.55 ceiling on the EXIF+C2PA contribution to prevent metadata alone (which is forgeable) from carrying the verdict.
@@ -80,14 +80,14 @@ Known limitations are documented openly: Jura Trace is not a deepfake-detector-o
 
 ## 3. Reproducibility and transparency
 
-Every quantitative claim in this document is reproducible by reading the AGPL-3.0-licensed source at `codeberg.org/jura-labs/jura-trace` (public from 2026-06-22) or the mirror at `github.com/Jura-Labs/jura-archive`. This is the Berkeley Protocol §6 reproducibility commitment.
+Every quantitative claim in this document is reproducible by reading the AGPL-3.0-licensed source at `github.com/Jura-Labs/jura-trace-dev`, public since 2026-09-08. The earlier Codeberg repository is frozen at v1.0.0 and `Jura-Labs/jura-archive` is private; neither is the place to read the source. This is the Berkeley Protocol §6 reproducibility commitment.
 
 Specific anchors:
 
 | Claim | Source anchor |
 |---|---|
 | Trust-score algorithm | `src-tauri/src/lib.rs::compute_trust` |
-| GBM classifier model card | `docs/calibration/gbm-classifier-v4-model-card.md` |
+| GBM classifier model card | `models/deepfake_classifier_v4_meta.json` |
 | UnivFD probe model card | `docs/calibration/univfd-v10onnx-divergence-fix.md` |
 | C2PA manifest schema | `src-tauri/src/c2pa.rs` |
 | Trust-list embedding | `src-tauri/src/c2pa.rs::TRUSTED_ISSUERS` |
