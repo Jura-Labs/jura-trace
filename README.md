@@ -21,7 +21,7 @@ Jura Trace examines images and reports what it finds. Honestly, and without cert
 
 - **12 forensic detectors**, covering Error Level Analysis, noise, copy-move, deepfake (GBM v4 plus UnivFD v10onnx ensemble), JPEG ghost, segmented ELA, colour temperature, CLIP zero-shot AI detection, and EXIF anomaly with XMP AI-provenance detection. Nine run automatically; three (NPR, shadow consistency, splice boundary) are on-demand investigation tools. C2PA provenance reading is counted separately, as reading a manifest is not forensics.
 - **C2PA Validator-Conformant** since 6 May 2026, publicly listed on the [C2PA Conforming Products List](https://spec.c2pa.org/conformance-explorer/) from 31 May 2026. Record identifier `019d8d83-ed1c-787c-920c-8fad67b55cbe`, spec version 2.2, image formats JPEG / PNG / TIFF / WebP. The first UK validator on that list, and the only Community Interest Company on it. Full L1 to L4 progressive disclosure aligned with the C2PA UX Recommendations v1.4. Trust-list aware (Adobe, Microsoft, Google, Truepic and others).
-- **Local-first.** No cloud, no accounts, no telemetry. An optional Enhanced mode fetches remote manifests. Revocation checking is not implemented: the mode is a hook for it, and c2pa-rs 0.90 does not yet expose OCSP or CRL at the API level.
+- **Local-first.** No cloud, no accounts, no telemetry. The network mode in Settings controls two optional outbound calls, the automatic update check and a historical weather lookup. Content Credentials are verified identically in both modes. Revocation checking (OCSP/CRL) and remote manifest fetching are not implemented.
 - **Cross-platform.** macOS (Apple Silicon), Windows (x64) and Linux (x86_64) are shipping.
 
 ## Download
@@ -32,7 +32,7 @@ The canonical download surface is **[juralabs.org](https://juralabs.org)**. For 
 |---|---|---|
 | **macOS** (Apple Silicon) | `JuraTrace-<version>-macOS-AppleSilicon.dmg` | Apple Developer ID, Jura Labs CIC (notarised) |
 | **Windows** (x64) | `JuraTrace-<version>-Windows-x64.msi` (recommended) <br> `JuraTrace-<version>-Windows-x64-setup.exe` (NSIS) | Azure Trusted Signing |
-| **Linux** (x86_64) | `JuraTrace-<version>-Linux-x86_64.AppImage` <br> `JuraTrace-<version>-Linux-x86_64.deb` | Self-signed, AGPL source build |
+| **Linux** (x86_64) | `JuraTrace-<version>-Linux-x86_64.AppImage` <br> `JuraTrace-<version>-Linux-x86_64.deb` | No platform code signing on Linux. Check the file against `SHA256SUMS.txt` on the release |
 
 Filenames carry the version of the release you are looking at, so take them
 from the release page rather than typing them.
@@ -56,7 +56,7 @@ If you are evaluating Jura Trace for editorial coverage, a funding decision, or 
 
 **Press contact.** Email `hello@juralabs.org`. Direct contact with the founder Paul Griffiths is available for technical or editorial briefings on request. Press kit (logos, screenshots, founder headshot, embedded preview video) is published at juralabs.org/press from 15 June 2026.
 
-**Wider documentation.** A public wiki mirror of the in-app help is live now at [github.com/Jura-Labs/jura-trace/wiki](https://github.com/Jura-Labs/jura-trace/wiki). From 2026-06-22 the same content is also published on Codeberg (`codeberg.org/jura-labs/jura-trace/wiki`, going live with the v1.0 public source release). Includes the full Methodology page, Format Support matrix, and Glossary.
+**Wider documentation.** A public wiki mirror of the in-app help is live now at [github.com/Jura-Labs/jura-trace/wiki](https://github.com/Jura-Labs/jura-trace/wiki). Includes the full Methodology page, Format Support matrix, and Glossary.
 
 **Try it.** Installers in the [Releases](https://github.com/Jura-Labs/jura-trace/releases) tab on this repository are signed (Apple Developer ID for macOS, Azure Trusted Signing for Windows) and run without further setup. Verification works fully offline.
 

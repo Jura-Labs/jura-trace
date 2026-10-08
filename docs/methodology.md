@@ -33,7 +33,7 @@ Jura Trace produces C2PA manifests that pass the c2patool selfqa test for JPEG, 
 
 ### 1.3 Trust-list awareness and revocation
 
-Verification consults the bundled Adobe / Microsoft / Google / Truepic trust list and reports the trust state honestly: trusted, untrusted, or self-signed, with the certificate's claimed identity rendered for the user. By default Jura Trace is fully offline; an optional **Enhanced mode** fetches remote manifests. Revocation checking is not implemented. The mode is the hook for it and c2pa-rs 0.90 does not yet expose OCSP or CRL at the API level (`src-tauri/src/c2pa.rs:1554`), so the §15.9 audit gap is not yet closed.
+Verification consults the bundled Adobe / Microsoft / Google / Truepic trust list and reports the trust state honestly: trusted, untrusted, or self-signed, with the certificate's claimed identity rendered for the user. Verification itself makes no network call, and it is identical in both network modes. Revocation checking (OCSP/CRL) and remote manifest fetching are not implemented: c2pa is built with `features = ["file_io"]` only (`src-tauri/Cargo.toml`), so the §15.9 audit gap is not yet closed. The **network mode** setting controls two optional outbound calls that do not touch C2PA, the automatic update check and a historical weather lookup.
 
 ### 1.4 Progressive disclosure (L1 to L4)
 

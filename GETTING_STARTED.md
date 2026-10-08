@@ -2,7 +2,7 @@
 
 > *A 10-minute walkthrough for new users — install, run your first verification, and see Content Credentials in action.*
 
-This guide tracks the latest release candidate on the [Releases page](https://github.com/Jura-Labs/jura-trace/releases). Jura Trace v1.0 launches on **Monday 22 June 2026**; release candidates published before that date are functionally complete and suitable for production evaluation.
+This guide tracks the current release on the [Releases page](https://github.com/Jura-Labs/jura-trace/releases).
 
 ---
 
@@ -257,10 +257,10 @@ The forensic detectors do real CPU work, especially the deepfake classifier and 
 ### What is "Network mode"?
 
 In **Settings → Network Access** you'll see two options:
-- **Enhanced (default)** — allows outbound HTTPS to certificate-authority OCSP/CRL endpoints (for full Content Credentials trust validation), the open-meteo weather API (for verify-context), and any remote manifest URLs embedded in the credentials of files you choose to verify.
-- **Standard (offline)** — fully offline. Some Content Credentials checks become "informational" (we can't reach the CA to confirm a certificate hasn't been revoked).
+- **Enhanced (default)**: allows the automatic update check, once a day at startup, and the historical weather lookup used by one detector.
+- **Standard**: turns both of those off.
 
-We recommend keeping **Enhanced** on. If you switch to Standard you'll see the difference clearly: many real-world Pixel and Adobe-signed images report "trust uncertain" because we can't reach Apple/Google/Adobe's CAs.
+Content Credentials are verified the same way in both modes. Jura Trace does not contact certificate authorities for revocation checks (OCSP/CRL) and does not fetch remote manifests, so switching mode does not change a trust result.
 
 ### What about Ollama / LLaVA / Qwen?
 
@@ -276,10 +276,14 @@ This is **expected** for **Pixel Zoom Enhance** photos. They use AI to add detai
 
 ### Is anything sent to a server?
 
-In **Standard (offline)** mode: nothing. In **Enhanced** mode: only outbound HTTPS to:
-- Certificate authorities (revocation checks, only when verifying a signed file)
-- open-meteo.com (only if you click the optional weather-context button)
-- Any HTTPS URL explicitly embedded in the Content Credentials of a file you choose to verify
+Your files are analysed on your own machine. Jura Trace makes a small number of network calls, and each one is either something you asked for or something you can turn off:
+
+- **Update check.** When you press Check for Updates, and once a day at startup in Enhanced mode.
+- **Timestamp when you sign.** Signing sends a hash derived from your file to `timestamp.digicert.com` so the signature carries a trusted time. The app shows you this before it seals anything.
+- **A URL you paste.** Verify by URL fetches the address you gave it.
+- **Weather lookup.** One detector cross-references historical weather for a stated time and place. Enhanced mode only.
+
+Standard mode turns off the automatic update check and the weather lookup. It does not cover the timestamp request made when you sign.
 
 The image itself **never** leaves your device.
 
