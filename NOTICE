@@ -18,20 +18,20 @@ The full licence text is in the LICENSE file in this repository, or at
 <https://www.gnu.org/licenses/agpl-3.0.txt>.
 
 ================================================================================
-ADDITIONAL TERMS AND POSITION STATEMENTS
+POSITION STATEMENTS
 ================================================================================
 
-The following terms and position statements accompany the AGPL-3.0-or-later
-licence and are documented in separate files in this repository.
+The licence is the GNU Affero General Public License, version 3 or later,
+as written in LICENSE, with no additional terms. What follows is a request
+and a statement of position, not a condition of the licence.
 
-AI training restriction
------------------------
+AI training: the copyright holder's position
+--------------------------------------------
 
-Use of this source code, in whole or in part, as training data for machine
-learning models or AI systems is not permitted under this licence without
-separate written permission from the copyright holder. The full position
-statement, scope, and process for requesting permission is documented in
-TRAINING.md.
+The copyright holder asks that this source code not be used, in whole or in
+part, as training data for machine learning models or AI systems without
+first obtaining written permission. See TRAINING.md for why, and for how to
+ask.
 
 Commercial licensing
 --------------------
