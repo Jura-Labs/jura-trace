@@ -24,6 +24,19 @@ Jura Trace examines images and reports what it finds. Honestly, and without cert
 - **Local-first.** No cloud, no accounts, no telemetry. The network mode in Settings controls two optional outbound calls, the automatic update check and a historical weather lookup. Content Credentials are verified identically in both modes. Revocation checking (OCSP/CRL) and remote manifest fetching are not implemented.
 - **Cross-platform.** macOS (Apple Silicon), Windows (x64) and Linux (x86_64) are shipping.
 
+## See it in action
+
+A full walkthrough of verifying an image and signing your own with Jura Trace.
+Six minutes eighteen seconds.
+
+<a href="https://vimeo.com/1204251650">
+  <img src="docs/media/walkthrough-poster.jpg" width="720"
+       alt="Watch the Jura Trace product walkthrough on Vimeo">
+</a>
+
+There is also a [52-second trailer](https://vimeo.com/1196221101). Both are
+embedded on [juralabs.org/jura-trace](https://juralabs.org/jura-trace).
+
 ## Download
 
 The canonical download surface is **[juralabs.org](https://juralabs.org)**. For specific historical builds you can also browse the [Releases](https://github.com/Jura-Labs/jura-trace/releases) page on this repository.
