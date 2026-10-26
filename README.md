@@ -6,6 +6,7 @@ Official downloads for **Jura Trace**, a local-first forensic media verification
 [![Licence: AGPL-3.0-or-later](https://img.shields.io/badge/licence-AGPL--3.0--or--later-5A85B5)](LICENSE)
 [![C2PA Validator-Conformant](https://img.shields.io/badge/C2PA-Validator--Conformant-5A85B5)](https://spec.c2pa.org/conformance-explorer/)
 [![CAI Member](https://img.shields.io/badge/CAI-Member-5B8A5F)](https://contentauthenticity.org)
+[![OpenUK Awards 2026: shortlisted, Security](https://img.shields.io/badge/OpenUK%20Awards%202026-Shortlisted%2C%20Security-5B8A5F)](https://openuk.uk/awards/)
 [![Website](https://img.shields.io/badge/website-juralabs.org-5A85B5)](https://juralabs.org)
 
 > 📥 **The canonical download surface for current installers is [juralabs.org](https://juralabs.org).** The Releases page on this repository remains available as a stable mirror.
@@ -41,8 +42,9 @@ Step-by-step install and first-verification walkthrough: **[GETTING_STARTED.md](
 
 ## Releases
 
-v1.1.0 was published on 10 September 2026 and is the current public release.
-It repairs the automatic update path, which had never worked in v1.0.0. The
+v1.2.0 was published on 20 October 2026 and is the current public release.
+It adds the `jura` command line, a local REST API, the Verification Record
+and a Linux server download. The
 [Releases](https://github.com/Jura-Labs/jura-trace/releases) page on this
 repository is the record of what has shipped.
 
@@ -53,6 +55,8 @@ If you are evaluating Jura Trace for editorial coverage, a funding decision, or 
 **Read the methodology before you write.** A two-page technical overview of the C2PA implementation (dual signing modes, trust-list awareness, manifest spec compliance) and the forensic methodology (twelve detectors, trust-score algorithm, model performance, known limitations) is published at **[docs/methodology.md](docs/methodology.md)**. Every quantitative claim is anchored to a specific file in the source tree, reproducible under the AGPL.
 
 **Verifiable conformance status.** Validator-Conformant on the public [C2PA Conforming Products List](https://spec.c2pa.org/conformance-explorer/) since 2026-05-31. Record identifier `019d8d83-ed1c-787c-920c-8fad67b55cbe`, spec version 2.2, JPEG / PNG / TIFF / WebP. The first UK validator on that list, the only Community Interest Company on it, and the tenth validator worldwide by conformance date. Content Authenticity Initiative member from 2026-05-28.
+
+**OpenUK Awards 2026.** Jura Labs CIC is shortlisted in the Security category for Jura Trace. Winners are announced on 5 November 2026. See [openuk.uk/awards](https://openuk.uk/awards/).
 
 **Press contact.** Email `hello@juralabs.org`. Direct contact with the founder Paul Griffiths is available for technical or editorial briefings on request. Press kit (logos, screenshots, founder headshot, embedded preview video) is published at juralabs.org/press from 15 June 2026.
 
