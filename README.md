@@ -6,6 +6,7 @@ Official downloads for **Jura Trace**, a local-first forensic media verification
 [![Licence: AGPL-3.0-or-later](https://img.shields.io/badge/licence-AGPL--3.0--or--later-5A85B5)](LICENSE)
 [![C2PA Validator-Conformant](https://img.shields.io/badge/C2PA-Validator--Conformant-5A85B5)](https://spec.c2pa.org/conformance-explorer/)
 [![CAI Member](https://img.shields.io/badge/CAI-Member-5B8A5F)](https://contentauthenticity.org)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23674914.svg)](https://doi.org/10.5281/zenodo.23674914)
 [![OpenUK Awards 2026: shortlisted, Security](https://img.shields.io/badge/OpenUK%20Awards%202026-Shortlisted%2C%20Security-5B8A5F)](https://openuk.uk/awards/)
 [![Website](https://img.shields.io/badge/website-juralabs.org-5A85B5)](https://juralabs.org)
 
