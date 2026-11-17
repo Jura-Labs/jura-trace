@@ -7,7 +7,7 @@ Official downloads for **Jura Trace**, a local-first forensic media verification
 [![C2PA Validator-Conformant](https://img.shields.io/badge/C2PA-Validator--Conformant-5A85B5)](https://spec.c2pa.org/conformance-explorer/)
 [![CAI Member](https://img.shields.io/badge/CAI-Member-5B8A5F)](https://contentauthenticity.org)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23674914.svg)](https://doi.org/10.5281/zenodo.23674914)
-[![OpenUK Awards 2026: shortlisted, Security](https://img.shields.io/badge/OpenUK%20Awards%202026-Shortlisted%2C%20Security-5B8A5F)](https://openuk.uk/awards/)
+[![Winner, OpenUK Awards 2026, Security](https://img.shields.io/badge/OpenUK%20Awards%202026-Winner%2C%20Security-5B8A5F)](https://openuk.uk/awards/)
 [![Website](https://img.shields.io/badge/website-juralabs.org-5A85B5)](https://juralabs.org)
 
 > 📥 **The canonical download surface for current installers is [juralabs.org](https://juralabs.org).** The Releases page on this repository remains available as a stable mirror.
@@ -57,7 +57,7 @@ If you are evaluating Jura Trace for editorial coverage, a funding decision, or 
 
 **Verifiable conformance status.** Validator-Conformant on the public [C2PA Conforming Products List](https://spec.c2pa.org/conformance-explorer/) since 2026-05-31. Record identifier `019d8d83-ed1c-787c-920c-8fad67b55cbe`, spec version 2.2, JPEG / PNG / TIFF / WebP. The first UK validator on that list, the only Community Interest Company on it, and the tenth validator worldwide by conformance date. Content Authenticity Initiative member from 2026-05-28.
 
-**OpenUK Awards 2026.** Jura Labs CIC is shortlisted in the Security category for Jura Trace. Winners are announced on 5 November 2026. See [openuk.uk/awards](https://openuk.uk/awards/).
+**OpenUK Awards 2026.** Jura Labs CIC won the Security award at the OpenUK Awards 2026, for Jura Trace. The awards were presented on 5 November 2026. See [openuk.uk/awards](https://openuk.uk/awards/).
 
 **Press contact.** Email `hello@juralabs.org`. Direct contact with the founder Paul Griffiths is available for technical or editorial briefings on request. Press kit (logos, screenshots, founder headshot, embedded preview video) is published at juralabs.org/press from 15 June 2026.
 
